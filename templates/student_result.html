@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> STUDENT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Supermercado+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css" integrity="sha256-lWpJZLAHZOCURVO4tz/qd18kGxO18N90hFgDF49utEg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Supermercado+One&display=swap" rel="stylesheet">
+</head>
+
+<body class='container-fluid' style="font-family: 'Quicksand', sans-serif;background-image: linear-gradient(to bottom, rgba(248, 248, 248, 0.274), rgba(243, 239, 239, 0.507)),url('https://i.pinimg.com/originals/58/9a/dd/589add66f1aa87ad7e6f22d588f23571.jpg');">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+        <a class="navbar-brand" href="#" style="font-family: 'Bowlby One SC', cursive;font-size: 1.6rem;">Placement wala</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 1.3rem;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">View Results <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/upload/">Upload Documents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/allcompanies/">All companies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View Notification</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" href="/logout/"><span style="color:black">Hello {{name}},</span> Logout</a>
+            </form>
+        </div>
+    </nav>
+    <section class="container">
+        <div class="row m-auto">
+
+            {% for i in company %}
+            <div class="p-4 col-md-4 m-auto" onclick="location.href='/info/';">
+                <div class="card shadow m-auto p-0" style="font-family: 'Quicksand', sans-serif; border-radius: 15px;">
+                    <div class="card-body p-0 text-center">
+                        <div class="bg-primary" style="border-radius: 15px;">
+                            <h5 class="card-title border-bottom py-3 text-center text-white bg-primary text-capitalize" style="border-top-left-radius: 15px;border-top-right-radius: 15px;font-family: 'Supermercado One', cursive; font-size:40px">{{i.name}}</h5>
+                        </div>
+                        <div style="font-weight: 600;">
+                            <span class="card-text text-dark text-center"><span class="lnr lnr-map-marker"></span> {{i.city}}</span> <br>
+                            <span class="card-text text-center">Criteria CGPA: {{i.company_cgpa}}</span><br><br>
+                            <p><a href="mailto:{{i.email}}" class="card-text py-4  text-center">{{i.email}}</a></p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </section>
+</body>
+
+</html>

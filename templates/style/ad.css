@@ -1,0 +1,21 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: url(banner.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.container{
+	text-align: center;
+	margin-top: 300px;
+}
+.btn{
+	border: 1px solid #3498db;
+	background:white;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-family: "montserrat";
+	cursor:pointer;
+	margin : 50px;
+
+}

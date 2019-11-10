@@ -1,0 +1,120 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V04</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" >
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Supermercado+One&display=swap" rel="stylesheet">
+<!--===============================================================================================-->
+</head>
+<body>
+	<nav class="navbar py-4 navbar-expand-lg navbar-light bg-light" style="font-family: 'Quicksand', sans-serif;">
+        <a class="navbar-brand" href="#" style="font-family: 'Bowlby One SC', cursive; color: #6c7ae0;font-size: 1.6rem;">Placement wala</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 1.3rem;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/admin_students/" style="color:#6c7ae0; ">Students<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#/" style="color:#6c7ae0;font-size:1.5rem;">Companies<span class="sr-only">(current)</span></a>
+                </li>
+                
+
+            </ul>
+         
+        </div>
+    </nav>
+	<div class="limiter">
+		<div class="container-table100">
+        <div class="my-4 p-4 rounded text-center text-white" style="background-color:#6c7ae0 ;">
+                <h2 style="font-family: 'Quicksand', sans-serif;"><span>Company</span> records</h2>
+            </div>
+            <div cl
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+                                    <th class="cell100 text-center column5">ID</th>
+									<th class="cell100 text-center column2">Comapny name</th>
+									<th class="cell100 text-center column1">Email Id</th>
+									<th class="cell100 text-center column5">City</th>
+									<th class="cell100 text-center column1">Required CGPA</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                            {% for i in students %}
+								<tr class="row100 body">
+									<td class="cell100 text-center column5">{{i.id}}</td>
+									<td class="cell100 text-center column2">{{i.name}}</td>
+									<td class="cell100 text-center column1">{{i.email}}</td>
+									<td class="cell100 text-center column5">{{i.city}}</td>
+									<td class="cell100 text-center column1">{{i.company_cgpa}}</td>
+								</tr>
+                            {% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->	
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

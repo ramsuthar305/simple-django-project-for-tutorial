@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>STUDENT</title>
+    <link rel="stylesheet" href="ad.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Supermercado+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+</head>
+
+<body class='container-fluid' style="background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');font-family: 'Quicksand', sans-serif;">
+    <nav class="navbar py-4 navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="font-family: 'Bowlby One SC', cursive; color: #B33771;font-size: 1.6rem;">Placement wala</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 1.3rem;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/company/{{request.session.userId}}" style="color:#B33771">Selected Students <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/applied/" style="color:#B33771">Applied Students <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:#B33771">View Notification</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" href="/logout/"><span style="color:black">Hello {{request.session.username}},</span> Logout</a>
+            </form>
+        </div>
+    </nav>
+    <section class="container mt-4 pt-4">
+        <div class="row m-auto">
+            {% for i in students %}
+            <div class="col-md-5 my-4  mx-4 border rounded py-2 px-3" style="background-color: #B33771">
+                <div class="row m-auto" style="font-family: 'Muli', sans-serif; font-size: 1.3em; font-weight: 600">
+                    <div class="text-center border-bottom text-white">
+                        <a class="text-white" href="/media/{{i.resume}}">{{i.name}}</a>
+                    </div>
+                </div>
+                <p class="card-text text-white text-justify pt-2"><span class="lnr lnr-map-marker"></span> {{i.city}}<span class="col-md-6">{{i.email}}</span></p>
+                <div class="row text-white border-top" style="font-family: 'Muli', sans-serif;">
+                    <div class="col-md-8">
+                        MIT School of Engineering
+                    </div>
+                    <div class="col-md-4">
+                        CGPA: {{i.cgpa}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+    </section>
+
+</body>
+
+</html>
