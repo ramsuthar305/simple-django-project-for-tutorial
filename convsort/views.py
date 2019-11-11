@@ -19,7 +19,7 @@ def register(request):
             return redirect('/student_result/'+data['name'])
         else:
             return redirect('/company/')
-    return render(request,'form.html',context)
+    return render(request,'register.html',context)
 
 def company(request,nam):
     if nam:

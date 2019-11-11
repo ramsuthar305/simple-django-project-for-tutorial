@@ -1,37 +1,50 @@
 {% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-   <body style="background-image:download.jpg;">
-      <title>Login V16</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      </head>
-      <body>
-         <div class="limiter m-auto">
-            <div class="container-login100 col-md-4 m-auto" style="background-image: url('download.jpg');">
-               <div class=" wrap-login100 p-t-30 p-b-50 ">
-                  <p class="login100-form-title p-b-41 text-center">
-                  Account Login 
-                  </p>
-                  <form id="Login-form" method="POST" action="/login/" >
-                     {% csrf_token %}
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+
+<head>
+
+    <title>Login V16</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="text-center mt-4 pt-4" style="background-image: url('https://images.pexels.com/photos/38556/office-notes-notepad-entrepreneur-38556.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+
+    <div class="limiter m-auto  ">
+
+        <div class="container-login100 col-md-4 m-auto">
+            <div class=" wrap-login100 p-t-30 p-b-50 bg-white p-4 rounded">
+                <a class="text-dark text-center" href="#" style="font-family: 'Bowlby One SC', cursive;font-size: 2.6rem;">Placement wala</a>
+
+                <p class="login100-form-title p-b-41 py-4 text-center">
+                    Account Login
+                </p>
+                <form id="Login-form" class="p-4 bg white" method="POST" action="/login/">
+                    {% csrf_token %}
+                    <div class="form-group">
+
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                     </div>
-                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                    </div>
+                    <div class="form-group">
+
                         <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-                     </div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-               </div>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-dark">Sing in</button>
+                </form>
+                <h5 class="text-muted text-center">or</h5>
+                <div class="py-4">
+                    <a href="/registration/" class="btn btn-block btn-outline-dark">Sign up </a>
+
+                </div>
             </div>
-         </div>
-         <div id="dropDownSelect1 "></div>
-         
-   </body>
+        </div>
+    </div>
+    <div id="dropDownSelect1 "></div>
+
+</body>
+
 </html>

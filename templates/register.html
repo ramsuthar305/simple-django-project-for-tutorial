@@ -1,0 +1,142 @@
+
+
+{% load static from staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'main.css' %}" rel="stylesheet" media="all">
+    <style>
+        .student {
+            display: none;
+        }
+        
+        .company {
+            display: none;
+        }
+    </style>
+</head>
+
+<body >
+    <div class="page-wrapper p-t-180 p-b-100 font-poppins" style="
+    background-image: url('http://getwallpapers.com/wallpaper/full/0/e/1/293966.jpg');
+">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3" style="background: rgba(0,0,0, 0.4);">
+                <div class="card-heading" style="
+    background-image: url('https://fsa.zobj.net/crop.php?r=fwG-6dp-RS_0qL1Z9oBfW1gMnAtD6fpzx7b6LTJoAJjrlT_jeVJz2Wdbx50p__YanZiqqS0O883McZ9bcZyO5CI40M0SpHbHmx5eyPpJQiEKflgpN-43BmWcZD0Z_BGBEFwQeukdiPld-HhVgZnSaosGblqaZJN0sHu5DwLJq1yT1yNl_wfZ2oSnCzw');
+"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    <form method="POST" action="/registration/">
+                        {% csrf_token %} 
+                        <div class="input-group">
+                            <input class="input--style-3"  type="text" placeholder="Name" name="name">
+                        </div>
+                        
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email">
+                        </div>
+                        <div class="input-group">
+            
+            <input class="input--style-3" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-white dropdown-toggle mb-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User Type
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <input class="input--style-3" type="text" name="user_type" hidden class="form-control" id="user_type">
+                <a class="dropdown-item" onclick="utype('student')">Student</a>
+                <a class="dropdown-item" onclick="utype('company')">Company</a>
+            </div>
+        </div>
+        <div class="input-group student" id="student">
+            
+            <input class="input--style-3" type="text" name="cgpa" class="form-control std" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CGPA">
+        </div>
+        <div class="input-group student" id="student">
+            
+            <input class="input--style-3" type="text" name="roll_no" class="form-control std" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Roll no">
+        </div>
+
+        <div class="input-group company" id="company">
+            
+            <input class="input--style-3" type="text" name="r_cgpa" class="form-control cmp" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Required CGPA">
+        </div>
+        <div class="p-t-10">
+                            <button class="btn btn--pill btn--green" name="Submit" value="Submit1" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        $(window).on("load", function() {
+            alert('hiii');
+            $('.student').hide();
+            $('.company').hide();
+        });
+
+        function utype(id) {
+            if (id == 'student') {
+                var id = '.' + id;
+                $('.company').hide();
+                $(id).toggle();
+                $('#user_type').val('student');
+
+
+                $('.cmp').val('NONE');
+            } else {
+                var id = '.' + id;
+                $('.student').hide();
+                $(id).toggle();
+                $('#user_type').val('company');
+
+                $('.std').val('NONE');
+            }
+
+        }
+    </script>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://templated.co/interphase) -->
+
+</html>
+<!-- end document-->
